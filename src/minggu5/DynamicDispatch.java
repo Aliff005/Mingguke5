@@ -8,6 +8,44 @@ package minggu5;
  *
  * @author ASUS
  */
+
+
+
+// Kelas A
+class A {
+    void callthis() {
+        System.out.println("Inside Class A's Method!");
+    }
+}
+
+// Kelas B (turunan dari A)
+class B extends A {
+    void callthis() {
+        System.out.println("Inside Class B's Method!");
+    }
+}
+
+// Kelas C (turunan dari A)
+class C extends A {
+    void callthis() {
+        System.out.println("Inside Class C's Method!");
+    }
+}
+
 public class DynamicDispatch {
-    
+       public static void main(String args[]) {
+        A a = new A();
+        B b = new B();
+        C c = new C();
+        A ref;  // Reference bertipe A
+
+        ref = b;
+        ref.callthis();  // Memanggil method dari class B
+
+        ref = c;
+        ref.callthis();  // Memanggil method dari class C
+
+        ref = a;
+        ref.callthis();  // Memanggil method dari class A
+    }
 }
